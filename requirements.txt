@@ -20,7 +20,10 @@ prettytable==0.7.2
 protobuf==3.7.1
 PyYAML==5.3.1
 scipy==1.4.1
+<<<<<<< HEAD
 six==1.14.0
+=======
+>>>>>>> origin/master
 tensorboard==1.13.1
 tensorflow==1.13.1
 tensorflow-estimator==1.13.0
