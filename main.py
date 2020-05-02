@@ -50,8 +50,10 @@ def model_run(data):
     global graph
     with graph.as_default():
         img_pred=model.predict(temp_img_array)
+        np.set_printoptions(formatter={'float': '{:.2f}'.format})
+        predict_percent = round(np.max(img_pred)*100,3)
         title = (label[np.argmax(img_pred)])
-    return title
+    return title,predict_percent
 
 
 
@@ -68,6 +70,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'])
 img1 =[]
 img_url=""
 title=""
+predict_percent=0
 
 # ファイルを受け取る方法の指定
 @app.route('/', methods=['GET','POST'])
@@ -76,7 +79,7 @@ def index():
     if title =="":
         return render_template("index.html")
     else:
-        return render_template("index.html",img_url=img_url, data=title)
+        return render_template("index.html",img_url=img_url, data=title, percentage=predict_percent)
 
 @app.route('/upload', methods=['GET','POST'])
 def upload():
@@ -102,11 +105,11 @@ def upload():
 
     img2 = glob.glob(save_path)
     img_url = img2[0]
-    title = model_run(img1)
+    title,predict_percent = model_run(img1)
     #####################################
     
         
-    return render_template('index.html',img_url=img_url, data=title)
+    return render_template('index.html',img_url=img_url, data=title, percentage=predict_percent)
 
 if __name__ == '__main__':
     app.debug = True
