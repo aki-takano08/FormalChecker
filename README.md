@@ -22,9 +22,9 @@ $ pip install tensorflow==1.13.1
 
 ```bash
 # gitをローカルにクローンする
-$ git clone https://github.com/aki-takano08/FormalChecker.git
+$ git clone https://github.com/aki-takano08/FormalChecker.git  
 # クローンしたディレクトリに移動する
-$ cd FormalChecker
+$ cd FormalChecker  
 # pipを使って必要なライブラリをインストールする
 $ pip install -r requirements.txt
 ```
