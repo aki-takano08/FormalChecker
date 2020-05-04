@@ -17,7 +17,7 @@ import sys
 from datetime import datetime
 app = Flask(__name__)
 img_url =""
-
+app.secret_key = b'_5y276"F4Q8z\n\xec]/'
 label=['men_casual','men_suit']
 SAVE_DIR = "./images"
 if not os.path.isdir(SAVE_DIR):
@@ -96,7 +96,8 @@ def upload():
         img1_secure = secure_filename(img1.filename)
     else:
         flash('画像ファイルを入れてください','failed')
-        sys.exit(1)
+        return render_template("index.html")
+        # sys.exit(1)
     
     Img =  Image.open(img1)
     dt_now = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_%f")
