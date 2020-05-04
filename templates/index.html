@@ -1,26 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>
-        ファイルをアップロードして判定しよう
-    </h1>
-    <form action="{{ url_for('upload') }}" method = post enctype = multipart/form-data>
-        <p><input type="file" name="image" accept="image/png, image/jpeg, image/jpg"></p>
-        <input type = submit value = Upload>
-    </form>
-    {% if img_url %}
-        <div>
-            <p>選択したファイル</p>
-            <img src="{{ img_url }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
-        </div>
-    {% endif %}
-    {% if data %}
-        <div>
-        <p>{{ data }}</p>
-        </div>
-    {% endif %}
-    {% if percentage %}
-        <div>
-        <p>{{ percentage }}</p>
-        </div>
+
+    <!-- main-wrapper -->
+    <div class="main-wrapper">
+
+        <!-- main-left -->
+        <section class="col-sm-6 main-left">
+            <h2>
+                <p>正装度チェッカー</p>
+                <p>で判定しよう</p>
+            </h2>
+        </section>
+        <!-- //main-left -->
+
+        <!-- main-right -->
+        <section class="col-sm-6 main-right">
+            <form action="{{ url_for('upload') }}" method = post enctype = multipart/form-data>
+                <div class="upload-area">
+                    <input type="file" name="image" accept="image/png, image/jpeg, image/jpg">
+                </div>
+                <div class="button-area">
+                    <input type="submit" value="判定する">
+                </div>
+            </form>
+        </section>
+        <!-- //main-right -->
+
+        <!-- 画像アップロード後 -->
+        {% if img_url %}
+            <div>
+                <p>選択したファイル</p>
+                <img src="{{ img_url }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
+            </div>
         {% endif %}
-{% endblock %}
+        {% if data %}
+            <div>
+            <p>{{ data }}</p>
+            </div>
+        {% endif %}
+        {% if percentage %}
+            <div>
+            <p>{{ percentage }}</p>
+            </div>
+            {% endif %}
+    {% endblock %}
+        <!-- //画像アップロード後 -->
+
+    </div>
+    <!-- //main-wrapper -->
