@@ -1,20 +1,49 @@
 <!doctype html>
-    <html>
+    <html lang="ja">
         <head>
             <meta charset="UTF-8">
-            <title>
-                ファイルをアップロードして判定しよう
-            </title>
-            <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
-            <style type="text/css">body {padding-top: 80px;} .rogo {color: #fff;}</style>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>正装度チェッカー</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../static/css/style.css">
         </head>
         <body>
-            <nav class='navbar navbar-expand-md navbar-dark bg-dark fixed-top'>
-                <p class='rogo'>服装チェッカー</p>
-            </nav>
-            <div class='container'>
+
+            <!-- header -->
+            <header>
+                
+                <!-- header-wrapper -->
+                <div class="header-wrapper">
+                    <img src="../static/images/bg_header.png" alt="" style="background-color: aquamarine;">
+
+                    <!-- header-text -->
+                    <div class="col-sm-10 header-text">
+                        <h1>
+                            <p>その服、</p>
+                            <p>オフィスカジュアル</p>
+                            <p>ですか？</p>
+                        </h1>
+                    </div>
+                    <!-- //header-text -->
+
+                </div>
+                <!-- //header-wrapper -->
+
+            </header>
+            <!-- //header -->
+
+            <main class="container">
                 {% block content %}
                 {% endblock %}
-            </div>
+            </main>
+            
+            <!-- footer -->
+            <footer>
+                <div class="container">
+                    <small>&copy;2020&nbsp;株式会社サンシーア</small>
+                </div>
+            </footer>
+            <!-- //footer -->
+
         </body>
     </html>
